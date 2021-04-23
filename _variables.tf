@@ -1,26 +1,32 @@
 variable "identity_provider_url" {
-  type = string
+  type        = string
+  description = "Enter the Identity Provider URL as displayed in the Bitbucket OpenID Connect Provider page in your repository"
 }
 
 variable "audience" {
-  type = string
+  type        = string
+  description = "Enter the Identity Provider Audience as displayed in the Bitbucket OpenID Connect Provider page in your repository"
 }
 
 variable "workspace_uuid" {
-  type = string
+  type        = string
+  description = "Enter the Workspace UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository"
 }
 
 variable "repository_uuid" {
   type = string
+  description = "Enter the Repository UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository"
 }
 
 variable "environment_uuid" {
   type = string
   default = ""
+  description = "Enter the Environment UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository. This is optional, will restrict this role to be used only with the Environment, if defined."
 }
 
-variable "name" {
+variable "role_name" {
   type = string
+  description = "Name for the role to be created"
 }
 
 variable "oidc_thumbprint" {
