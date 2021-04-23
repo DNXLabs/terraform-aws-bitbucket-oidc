@@ -1,9 +1,12 @@
 resource "aws_iam_role" "default" {
-  name               = var.role_name
-  assume_role_policy = data.aws_iam_policy_document.assume_role_saml.json
+  for_each = {for role in var.roles: role.name => role}
+  name               = each.value.name
+  assume_role_policy = data.aws_iam_policy_document.assume_role_saml[each.key].json
 }
 
 data "aws_iam_policy_document" "assume_role_saml" {
+  for_each = {for role in var.roles: role.name => role}
+
   statement {
     principals {
       type        = "Federated"
@@ -13,16 +16,15 @@ data "aws_iam_policy_document" "assume_role_saml" {
     }
     actions = ["sts:AssumeRoleWithWebIdentity"]
     condition {
-      test     = "StringLike"
+      test     = "ForAnyValue:StringLike"
       variable = "${replace(var.identity_provider_url, "https://", "")}:sub"
-      values   = [local.oidc_condition]
+      values   = each.value.conditions
     }
   }
 }
 
 locals {
   oidc_server_name = lookup(regex("^(?:(?P<scheme>[^:/?#]+):)?(?://(?P<host>[^/?#]*))?", var.identity_provider_url), "host")
-  oidc_condition = var.environment_uuid == "" ? "${var.repository_uuid}:*" :  "${var.repository_uuid}*:${var.environment_uuid}:*"
 }
 
 # data "external" "thumbprint" {

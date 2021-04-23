@@ -13,20 +13,10 @@ variable "workspace_uuid" {
   description = "Enter the Workspace UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository"
 }
 
-variable "repository_uuid" {
-  type = string
-  description = "Enter the Repository UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository"
-}
-
-variable "environment_uuid" {
-  type = string
-  default = ""
-  description = "Enter the Environment UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository. This is optional, will restrict this role to be used only with the Environment, if defined."
-}
-
-variable "role_name" {
-  type = string
-  description = "Name for the role to be created"
+variable "roles" {
+  type        = list
+  default     = []
+  description = "List of roles to create, format: [{ name: <role_name>, conditions: <conditions> }, {...}]"
 }
 
 variable "oidc_thumbprint" {
