@@ -16,9 +16,7 @@ The following resources will be created:
 
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| terraform | >= 0.13.0 |
+No requirements.
 
 ## Providers
 
@@ -30,22 +28,20 @@ The following resources will be created:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| alarm\_account\_ids | AWS Account IDs to allow receiving alarms to the SNS Topic | `list` | `[]` | no |
-| alarm\_namespace | The namespace in which all alarms are set up. | `string` | `"CISBenchmark"` | no |
-| alarm\_sns\_topic\_name | The name of the SNS Topic which will be notified when any alarm is performed. | `string` | `"CISAlarm"` | no |
-| cloudtrail\_log\_group\_name | The name of Cloudtrail log group. (Default is <org-name>-cloudtrail) | `string` | `""` | no |
-| enable\_alarm\_baseline | The boolean flag whether this module is enabled or not. No resources are created when set to false. | `bool` | `true` | no |
-| enable\_chatbot\_slack | If true, will create aws chatboot and integrate to slack | `bool` | `true` | no |
-| org\_name | Name for this organization | `any` | n/a | yes |
-| slack\_channel\_id | Slack channel id to send budget notification using AWS Chatbot | `string` | `""` | no |
-| slack\_workspace\_id | Slack workspace id to send budget notification using AWS Chatbot | `string` | `""` | no |
-| tags | Specifies object tags key and value. This applies to all resources created by this module. | `map` | <pre>{<br>  "Terraform": true<br>}</pre> | no |
+| audience | n/a | `string` | n/a | yes |
+| environment\_uuid | n/a | `string` | `""` | no |
+| identity\_provider\_url | n/a | `string` | n/a | yes |
+| name | n/a | `string` | n/a | yes |
+| oidc\_thumbprint | Thumbprint of OIDC host. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html | `string` | `"a031c46782e6e6c662c2c87c76da9aa62ccabd8e"` | no |
+| repository\_uuid | n/a | `string` | n/a | yes |
+| workspace\_uuid | n/a | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| alarm\_sns\_topic | The SNS topic to which CloudWatch Alarms will be sent. |
+| identity\_provider\_arn | n/a |
+| role\_arn | n/a |
 
 <!--- END_TF_DOCS --->
 
