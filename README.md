@@ -28,13 +28,13 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| audience | n/a | `string` | n/a | yes |
-| environment\_uuid | n/a | `string` | `""` | no |
-| identity\_provider\_url | n/a | `string` | n/a | yes |
-| name | n/a | `string` | n/a | yes |
+| audience | Enter the Identity Provider Audience as displayed in the Bitbucket OpenID Connect Provider page in your repository | `string` | n/a | yes |
+| environment\_uuid | Enter the Environment UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository. This is optional, will restrict this role to be used only with the Environment, if defined. | `string` | `""` | no |
+| identity\_provider\_url | Enter the Identity Provider URL as displayed in the Bitbucket OpenID Connect Provider page in your repository | `string` | n/a | yes |
 | oidc\_thumbprint | Thumbprint of OIDC host. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html | `string` | `"a031c46782e6e6c662c2c87c76da9aa62ccabd8e"` | no |
-| repository\_uuid | n/a | `string` | n/a | yes |
-| workspace\_uuid | n/a | `string` | n/a | yes |
+| repository\_uuid | Enter the Repository UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository | `string` | n/a | yes |
+| role\_name | Name for the role to be created | `string` | n/a | yes |
+| workspace\_uuid | Enter the Workspace UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository | `string` | n/a | yes |
 
 ## Outputs
 
