@@ -1,15 +1,15 @@
 resource "aws_iam_role" "default" {
-  for_each = {for role in var.roles: role.name => role}
+  for_each           = { for role in var.roles : role.name => role }
   name               = each.value.name
   assume_role_policy = data.aws_iam_policy_document.assume_role_saml[each.key].json
 }
 
 data "aws_iam_policy_document" "assume_role_saml" {
-  for_each = {for role in var.roles: role.name => role}
+  for_each = { for role in var.roles : role.name => role }
 
   statement {
     principals {
-      type        = "Federated"
+      type = "Federated"
       identifiers = [
         "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${replace(var.identity_provider_url, "https://", "")}"
       ]
@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "assume_role_saml" {
     condition {
       test     = "IpAddress"
       variable = "aws:SourceIp"
-      values   = [
+      values = [
         "34.199.54.113/32",
         "34.232.25.90/32",
         "34.232.119.183/32",
