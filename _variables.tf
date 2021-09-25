@@ -14,7 +14,7 @@ variable "workspace_uuid" {
 }
 
 variable "roles" {
-  type        = list
+  type        = list(any)
   default     = []
   description = "List of roles to create, format: [{ name: <role_name>, conditions: <conditions> }, {...}]"
 }
