@@ -16,7 +16,9 @@ The following resources will be created:
 
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13.0 |
 
 ## Providers
 
@@ -31,7 +33,7 @@ No requirements.
 | audience | Enter the Identity Provider Audience as displayed in the Bitbucket OpenID Connect Provider page in your repository | `string` | n/a | yes |
 | identity\_provider\_url | Enter the Identity Provider URL as displayed in the Bitbucket OpenID Connect Provider page in your repository | `string` | n/a | yes |
 | oidc\_thumbprint | Thumbprint of OIDC host. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html | `string` | `"a031c46782e6e6c662c2c87c76da9aa62ccabd8e"` | no |
-| roles | List of roles to create, format: [{ name: <role\_name>, conditions: <conditions> }, {...}] | `list` | `[]` | no |
+| roles | List of roles to create, format: [{ name: <role\_name>, conditions: <conditions> }, {...}] | `list(any)` | `[]` | no |
 | workspace\_uuid | Enter the Workspace UUID as displayed in the Bitbucket OpenID Connect Provider page in your repository | `string` | n/a | yes |
 
 ## Outputs
