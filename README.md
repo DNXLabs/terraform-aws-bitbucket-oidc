@@ -1,7 +1,9 @@
 # terraform-aws-bitbucket-oidc
 
-[![Lint Status](https://github.com/DNXLabs/terraform-aws-bitbucket-oidc/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-bitbucket-oidc/actions)
-[![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-bitbucket-oidc)](https://github.com/DNXLabs/terraform-aws-bitbucket-oidc/blob/master/LICENSE)
+This repository is now archive and it's read-only.
+The replacement module for this one can be found at https://github.com/DNXLabs/terraform-aws-vcs-oidc
+
+---
 
 This module sets up IAM Roles and Identity Provider for Bitbucket OIDC.
 
